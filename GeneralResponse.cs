@@ -5,6 +5,9 @@ using System.Text;
 
 namespace GetInfra.WebApi.Abstractions
 {
+    /// <summary>
+    /// general api response with numeric id as return value
+    /// </summary>
     public class GeneralResponse
     {
         public GeneralResponse()
@@ -21,6 +24,7 @@ namespace GetInfra.WebApi.Abstractions
             }
         }
 
+        [Obsolete("Will be removed in next versions")]
         public string Msg { get; set; }
 
         /// <summary>
@@ -44,7 +48,7 @@ namespace GetInfra.WebApi.Abstractions
             }
         }
 
-        public int NewId { get; set; }
+        public long NewId { get; set; }
 
     }
 }
