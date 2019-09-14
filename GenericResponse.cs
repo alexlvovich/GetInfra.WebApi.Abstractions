@@ -8,7 +8,7 @@ namespace GetInfra.WebApi.Abstractions
     /// <summary>
     /// generic api response with numeric id as return value
     /// </summary>
-    public class GenericResponse<T> where T : class 
+    public class GenericResponse<T> where T : struct
     {
         public GenericResponse()
         {
