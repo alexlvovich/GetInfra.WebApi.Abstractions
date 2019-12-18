@@ -1,0 +1,45 @@
+﻿using GetInfra.WebApi.Abstractions.Models.Responses;
+using GetInfra.WebApi.Abstractions.Validation;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace GetInfra.WebApi.Abstractions.Models.Validation
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public abstract class ValidatorBase<T> : IValidator<T>
+    {
+        protected ValidatorBase(IRegularExpressions expressions)
+        {
+            Expressions = expressions;
+        }
+
+        protected IRegularExpressions Expressions { get; private set; }
+
+        #region IValidator<T> Members
+
+        public abstract Task<BaseResponse> ValidateAsync(T entity, CancellationToken cancellation = default);
+
+        #endregion
+
+        protected ValidationErrorItem CreateValidationError(object attemtedValue, string validationKey, string validationMessage, params object[] validationMessageParameters)
+        {
+            if (validationMessageParameters != null && validationMessageParameters.Length > 0)
+            {
+                validationMessage = string.Format(validationMessage, validationMessageParameters);
+            }
+
+            return new ValidationErrorItem(
+                validationKey,
+                attemtedValue,
+                new InvalidOperationException(validationMessage)
+                );
+        }
+
+    }
+}
