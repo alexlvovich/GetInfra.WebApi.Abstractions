@@ -16,14 +16,14 @@ namespace GetInfra.WebApi.Abstractions.Models.Responses
         /// <summary>
         /// 
         /// </summary>
-        public T AssociatedId { get; set; }
+        public T Id { get; set; }
 
         public bool Succeeded
         {
             get
             {
                 // if no validation errors and no execution errors occured and id generated the call is succesful 
-                return ValiationErrors.Count == 0 && Errors.Count == 0 && AssociatedId != null;
+                return ValiationErrors.Count == 0 && Errors.Count == 0 && Id != null;
             }
         }
     }

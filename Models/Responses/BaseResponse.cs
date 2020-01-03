@@ -31,5 +31,7 @@ namespace GetInfra.WebApi.Abstractions.Models.Responses
                 return ValiationErrors.Count == 0;
             }
         }
+
+       
     }
 }
