@@ -7,7 +7,7 @@ namespace GetInfra.WebApi.Abstractions.Models.Responses
     /// <summary>
     /// generic api response with IConvrtable (primitives data types) as return value
     /// </summary>
-    public class GenericResponse<T> : BaseResponse where T : IConvertible
+    public class GenericResponse<T> : BaseResponse where T : notnull
     {
         public GenericResponse()
         {

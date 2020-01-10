@@ -2,7 +2,10 @@
 
 namespace GetInfra.WebApi.Abstractions.Extentions
 {
-    public static class BaseResponseExtentions
+    /// <summary>
+    /// converting from one responce to another
+    /// </summary>
+    public static class BaseResponseExtensions
     {
         public static GenericValResponse<T> ToGenericValResponse<T>(this BaseResponse res)
           where T : struct
@@ -18,6 +21,16 @@ namespace GetInfra.WebApi.Abstractions.Extentions
          where T : class
         {
             var result = new GenericRefResponse<T>();
+
+            result.Errors = res.Errors;
+            result.ValiationErrors = res.ValiationErrors;
+            return result;
+        }
+
+        public static GenericResponse<T> ToGenericResponse<T>(this BaseResponse res)
+       where T : notnull
+        {
+            var result = new GenericResponse<T>();
 
             result.Errors = res.Errors;
             result.ValiationErrors = res.ValiationErrors;
