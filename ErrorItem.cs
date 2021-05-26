@@ -6,6 +6,10 @@ namespace GetInfra.WebApi.Abstractions
 {
     public class ErrorItem
     {
+        public ErrorItem() : this(string.Empty, string.Empty, string.Empty)
+        {
+
+        }
         public ErrorItem(string message) : this(message, string.Empty, string.Empty)
         {
 

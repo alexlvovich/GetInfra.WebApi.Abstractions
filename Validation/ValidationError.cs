@@ -6,6 +6,10 @@ namespace GetInfra.WebApi.Abstractions.Validation
 {
     public class ValidationErrorItem
     {
+        public ValidationErrorItem(): this(string.Empty, null, string.Empty)
+        {
+        }
+
         public ValidationErrorItem(string name, object attemptedValue, string message)
         {
             if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
