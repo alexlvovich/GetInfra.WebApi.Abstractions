@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GetInfra.WebApi.Abstractions
+namespace GetInfra.WebApi.Abstractions.Models.Responses
 {
     public class PagedResponseWithAggs<T> : PagedResponse<T>
     {

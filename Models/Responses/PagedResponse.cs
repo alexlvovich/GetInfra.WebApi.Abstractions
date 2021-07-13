@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GetInfra.WebApi.Abstractions
+namespace GetInfra.WebApi.Abstractions.Models.Responses
 {
     public class PagedResponse<T>
     {

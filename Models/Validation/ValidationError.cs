@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace GetInfra.WebApi.Abstractions.Validation
+namespace GetInfra.WebApi.Abstractions.Models.Validation
 {
     public class ValidationErrorItem
     {
@@ -23,12 +21,15 @@ namespace GetInfra.WebApi.Abstractions.Validation
         public ValidationErrorItem(string name, object attemptedValue, Exception exception)
         {
             if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
-            if (exception == null) throw new ArgumentNullException("exception");
-
-            Name = name;
-            AttemptedValue = attemptedValue;
-            Exception = exception;
-            Message = exception.Message;
+            if (exception != null)
+            {
+                Name = name;
+                AttemptedValue = attemptedValue;
+                Exception = exception;
+                Message = exception.Message;
+            }
+            else
+                throw new ArgumentNullException("exception");
         }
 
         public string Name { get; private set; }

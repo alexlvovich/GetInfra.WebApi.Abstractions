@@ -1,7 +1,5 @@
-﻿using GetInfra.WebApi.Abstractions.Validation;
-using System;
+﻿using GetInfra.WebApi.Abstractions.Models.Validation;
 using System.Collections.Generic;
-using System.Text;
 
 namespace GetInfra.WebApi.Abstractions.Models.Responses
 {
