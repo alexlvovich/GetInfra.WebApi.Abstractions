@@ -18,23 +18,16 @@ namespace GetInfra.WebApi.Abstractions.Models.Validation
             Message = message;
         }
 
-        public ValidationErrorItem(string name, object attemptedValue, Exception exception)
+        public ValidationErrorItem(string name, object attemptedValue)
         {
             if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
-            if (exception != null)
-            {
-                Name = name;
-                AttemptedValue = attemptedValue;
-                Exception = exception;
-                Message = exception.Message;
-            }
-            else
-                throw new ArgumentNullException("exception");
+
+            Name = name;
+            AttemptedValue = attemptedValue;
         }
 
         public string Name { get; private set; }
         public object AttemptedValue { get; private set; }
         public string Message { get; private set; }
-        public Exception Exception { get; private set; }
     }
 }

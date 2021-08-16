@@ -34,7 +34,7 @@ namespace GetInfra.WebApi.Abstractions.Models.Validation
             return new ValidationErrorItem(
                 validationKey,
                 attemtedValue,
-                new InvalidOperationException(validationMessage)
+                validationMessage
                 );
         }
 
