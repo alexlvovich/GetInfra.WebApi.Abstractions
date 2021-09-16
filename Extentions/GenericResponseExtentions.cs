@@ -11,7 +11,7 @@ namespace GetInfra.WebApi.Abstractions.Extentions
             var result = new GeneralResponse();
 
             result.Errors = res.Errors;
-            result.ValiationErrors = res.ValiationErrors;
+            result.ValidationErrors = res.ValidationErrors;
             result.NewId = (long)Convert.ChangeType(res.Id, typeof(long));
 
             return result;

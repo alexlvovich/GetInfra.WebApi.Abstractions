@@ -12,7 +12,7 @@ namespace GetInfra.WebApi.Abstractions.Models.Responses
         public GenericValResponse()
         {
             Errors = new List<ErrorItem>();
-            ValiationErrors = new List<ValidationErrorItem>();
+            ValidationErrors = new List<ValidationErrorItem>();
         }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace GetInfra.WebApi.Abstractions.Models.Responses
             get
             {
                 // if no validation errors and no execution errors occured and id generated the call is succesful 
-                return ValiationErrors.Count == 0 && Errors.Count == 0 && !EqualityComparer<T>.Default.Equals(Id, default(T));
+                return ValidationErrors.Count == 0 && Errors.Count == 0 && !EqualityComparer<T>.Default.Equals(Id, default(T));
             }
         }
 

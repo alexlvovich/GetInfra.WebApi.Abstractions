@@ -13,7 +13,7 @@ namespace GetInfra.WebApi.Abstractions.Extentions
             var result = new GenericValResponse<T>();
 
             result.Errors = res.Errors;
-            result.ValiationErrors = res.ValiationErrors;
+            result.ValidationErrors = res.ValidationErrors;
             return result;
         }
 
@@ -23,7 +23,7 @@ namespace GetInfra.WebApi.Abstractions.Extentions
             var result = new GenericRefResponse<T>();
 
             result.Errors = res.Errors;
-            result.ValiationErrors = res.ValiationErrors;
+            result.ValidationErrors = res.ValidationErrors;
             return result;
         }
 
@@ -33,7 +33,7 @@ namespace GetInfra.WebApi.Abstractions.Extentions
             var result = new GenericResponse<T>();
 
             result.Errors = res.Errors;
-            result.ValiationErrors = res.ValiationErrors;
+            result.ValidationErrors = res.ValidationErrors;
             return result;
         }
     }

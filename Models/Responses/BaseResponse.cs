@@ -12,7 +12,7 @@ namespace GetInfra.WebApi.Abstractions.Models.Responses
         public BaseResponse()
         {
             Errors = new List<ErrorItem>();
-            ValiationErrors = new List<ValidationErrorItem>();
+            ValidationErrors = new List<ValidationErrorItem>();
         }
         /// <summary>
         /// Returns errors in case of failure
@@ -22,13 +22,13 @@ namespace GetInfra.WebApi.Abstractions.Models.Responses
         /// <summary>
         /// Return validation errors
         /// </summary>
-        public List<ValidationErrorItem> ValiationErrors { get; set; }
+        public List<ValidationErrorItem> ValidationErrors { get; set; }
 
         public bool IsValid
         {
             get
             {
-                return ValiationErrors.Count == 0;
+                return ValidationErrors.Count == 0;
             }
         }
 

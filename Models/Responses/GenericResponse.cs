@@ -11,14 +11,14 @@ namespace GetInfra.WebApi.Abstractions.Models.Responses
         public GenericResponse()
         {
             Errors = new List<ErrorItem>();
-            ValiationErrors = new List<ValidationErrorItem>();
+            ValidationErrors = new List<ValidationErrorItem>();
         }
         public bool Succeeded
         {
             get
             {
                 // if no validation errors and no execution errors occured and id generated the call is succesful 
-                return ValiationErrors.Count == 0 && Errors.Count == 0;
+                return ValidationErrors.Count == 0 && Errors.Count == 0;
             }
         }
 
