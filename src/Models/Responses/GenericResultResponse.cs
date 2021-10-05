@@ -6,6 +6,6 @@
     /// <typeparam name="T"></typeparam>
     public class GenericResultResponse<T> : BaseResultResponse where T : notnull
     {
-        public T Id { get; set; }
+        public T Result { get; set; }
     }
 }
