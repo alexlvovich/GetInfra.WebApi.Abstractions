@@ -20,7 +20,15 @@ namespace GetInfra.WebApi.Abstractions.Models.Validation
 
         #region IValidator<T> Members
 
+        /// <summary>
+        /// to remove
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [Obsolete]
         public abstract Task<BaseResponse> ValidateAsync(T entity, CancellationToken cancellation = default);
+
+        public abstract Task<BaseResultResponse> ValidateAsync(T entity);
 
         #endregion
 
