@@ -17,7 +17,7 @@ namespace Getinfra.Webapi.Abstractions.Tests
         public void Basic_SerilizeWithout()
         {
             var result = new GenericResultResponse<bool>();
-            result.Id = true;
+            result.Result = true;
 
             // act
             var str = result.AsJson<bool>();
@@ -34,7 +34,7 @@ namespace Getinfra.Webapi.Abstractions.Tests
         {
             // act
             var result = new GenericResultResponse<bool>();
-            result.Id = true;
+            result.Result = true;
             // assert
 
             result.IsValid.Should().BeTrue();
@@ -45,7 +45,7 @@ namespace Getinfra.Webapi.Abstractions.Tests
         {
             // act
             var result = new GenericResultResponse<bool>();
-            result.Id = true;
+            result.Result = true;
             result.ValidationErrors = new List<ValidationErrorItem>();
             result.ValidationErrors.Add(new ValidationErrorItem("object", ""));
             // assert
@@ -59,7 +59,7 @@ namespace Getinfra.Webapi.Abstractions.Tests
         {
             // act
             var result = new GenericResultResponse<bool>();
-            result.Id = true;
+            result.Result = true;
             // assert
 
             result.Succeeded.Should().BeTrue();
@@ -70,7 +70,7 @@ namespace Getinfra.Webapi.Abstractions.Tests
         {
             // act
             var result = new GenericResultResponse<bool>();
-            result.Id = true;
+            result.Result = true;
             result.ValidationErrors = new List<ValidationErrorItem>();
             result.ValidationErrors.Add(new ValidationErrorItem("object", ""));
 
