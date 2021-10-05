@@ -22,6 +22,7 @@ namespace GetInfra.WebApi.Abstractions.Models
         {
             get
             {
+                if (ValidationErrors == null) return true;
                 return ValidationErrors.Count == 0;
             }
         }
@@ -31,6 +32,7 @@ namespace GetInfra.WebApi.Abstractions.Models
         {
             get
             {
+                if (ValidationErrors == null && Errors == null) return true;
                 // if no validation errors and no execution errors occured and id generated the call is succesful 
                 return ValidationErrors.Count == 0 && Errors.Count == 0;
             }
