@@ -32,9 +32,20 @@ namespace GetInfra.WebApi.Abstractions.Models
         {
             get
             {
-                if (ValidationErrors == null && Errors == null) return true;
-                // if no validation errors and no execution errors occured and id generated the call is succesful 
-                return ValidationErrors.Count == 0 && Errors.Count == 0;
+                
+                var errors = Errors == null;
+                if (!errors)
+                {
+                    errors = (Errors.Count == 0);
+                }
+
+                var validationErrors = ValidationErrors == null;
+                if (!validationErrors)
+                {
+                    validationErrors = ValidationErrors.Count == 0;
+                }
+              
+                return errors && validationErrors;
             }
         }
 

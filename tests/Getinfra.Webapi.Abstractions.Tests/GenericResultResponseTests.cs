@@ -65,6 +65,32 @@ namespace Getinfra.Webapi.Abstractions.Tests
             result.Succeeded.Should().BeTrue();
         }
 
+
+        [Fact]
+        public void Basic_HavingValidationError()
+        {
+            // act
+            var result = new GenericResultResponse<bool>();
+            result.Result = false;
+            result.SafeAddValidationError(new ValidationErrorItem("kuku", false));
+            // assert
+
+            result.Succeeded.Should().BeFalse();
+        }
+
+        [Fact]
+        public void Basic_HavingError()
+        {
+            // act
+            var result = new GenericResultResponse<bool>();
+            result.Result = false;
+            result.SafeAddError(new ErrorItem("kuku"));
+            // assert
+
+            result.Succeeded.Should().BeFalse();
+        }
+
+
         [Fact]
         public void Basic_NoSuccess()
         {
