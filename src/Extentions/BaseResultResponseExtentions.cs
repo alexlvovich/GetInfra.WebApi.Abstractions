@@ -1,5 +1,7 @@
 ﻿using GetInfra.WebApi.Abstractions.Models;
 using GetInfra.WebApi.Abstractions.Models.Responses;
+using GetInfra.WebApi.Abstractions.Models.Validation;
+using System.Collections.Generic;
 
 namespace GetInfra.WebApi.Abstractions.Extentions
 {
@@ -17,6 +19,20 @@ namespace GetInfra.WebApi.Abstractions.Extentions
             result.Errors = res.Errors;
             result.ValidationErrors = res.ValidationErrors;
             return result;
+        }
+
+        public static void SafeAddValidationError(this BaseResultResponse response, ValidationErrorItem error)
+        {
+            if (response.ValidationErrors == null) response.ValidationErrors = new List<ValidationErrorItem>();
+
+            response.ValidationErrors.Add(error);
+        }
+
+        public static void SafeAddError(this BaseResultResponse response, ErrorItem error)
+        {
+            if (response.Errors == null) response.Errors = new List<ErrorItem>();
+
+            response.Errors.Add(error);
         }
     }
 }
