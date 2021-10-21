@@ -1,8 +1,10 @@
 ﻿using GetInfra.WebApi.Abstractions.Models;
 using GetInfra.WebApi.Abstractions.Models.Responses;
+using GetInfra.WebApi.Abstractions.Models.Validation;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
+using System.Collections.Generic;
 
 namespace GetInfra.WebApi.Abstractions.Extentions
 {
@@ -30,6 +32,20 @@ namespace GetInfra.WebApi.Abstractions.Extentions
                 });
 
             return str;
+        }
+
+        public static void SafeAddError<T>(this GenericResultResponse<T> response, ErrorItem error)
+        {
+            if (response.Errors == null) response.Errors = new List<ErrorItem>();
+
+            response.Errors.Add(error);
+        }
+
+        public static void SafeAddValidationError<T>(this GenericResultResponse<T> response, ValidationErrorItem error)
+        {
+            if (response.ValidationErrors == null) response.ValidationErrors = new List<ValidationErrorItem>();
+
+            response.ValidationErrors.Add(error);
         }
     }
 }

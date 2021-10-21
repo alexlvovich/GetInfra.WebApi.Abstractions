@@ -9,9 +9,9 @@ namespace GetInfra.WebApi.Abstractions.Models.Validation
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class ValidatorBase<T> : IValidator<T>
+    public abstract class BaseResponseValidator<T> : IBaseResponseValidator<T>
     {
-        protected ValidatorBase(IRegularExpressions expressions)
+        protected BaseResponseValidator(IRegularExpressions expressions)
         {
             Expressions = expressions;
         }

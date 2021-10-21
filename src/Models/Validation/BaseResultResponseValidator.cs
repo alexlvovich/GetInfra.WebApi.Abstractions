@@ -9,9 +9,9 @@ namespace GetInfra.WebApi.Abstractions.Models.Validation
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class ValidatorBase<T> : IValidator<T>
+    public abstract class BaseResultResponseValidator<T> : IBaseResultResponseValidator<T>
     {
-        protected ValidatorBase(IRegularExpressions expressions)
+        protected BaseResultResponseValidator(IRegularExpressions expressions)
         {
             Expressions = expressions;
         }
@@ -20,7 +20,7 @@ namespace GetInfra.WebApi.Abstractions.Models.Validation
 
         #region IValidator<T> Members
 
-        public abstract Task<BaseResponse> ValidateAsync(T entity, CancellationToken cancellation = default);
+        public abstract Task<BaseResultResponse> ValidateAsync(T entity, CancellationToken cancellation = default);
 
         #endregion
 
